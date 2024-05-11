@@ -70,11 +70,12 @@ public class TimeTable extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent click) {
-        int min, step, clashes;
+        int min = Integer.MAX_VALUE, step=0, clashes;
 
         switch (getButtonIndex((JButton) click.getSource())) {
             case 0:
                 int slots = Integer.parseInt(field[0].getText());
+                min = Integer.MAX_VALUE;
                 courses = new CourseArray(Integer.parseInt(field[1].getText()) + 1, slots);
                 courses.readClashes(field[2].getText());
                 draw();
